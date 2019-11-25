@@ -1,0 +1,89 @@
+$background-color: #111;
+$lightning-yellow: #e8b923;
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-color;
+}
+
+.title-container {
+  margin-bottom: 40px;
+}
+
+.title {
+  margin: 0;
+  font-size: 6rem;
+  text-align: center;
+  font-family: "Harry Potter Regular";
+  color: #fff;
+
+  background: linear-gradient(to right, #fff, #888, #fff);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: title-animate 3s linear infinite;
+}
+
+@keyframes title-animate {
+  100% {
+    background-position: 200%;
+  }
+}
+
+.animated-try {
+  font-size: 2.5rem;
+  color: white;
+  transition: 1s;
+  transform: translateX(1.8rem);
+  animation: try-animate 8s linear infinite;
+
+  &::after {
+    transition: 1s;
+    content: " ⚡️⚡️";
+    opacity: 0;
+  }
+
+  &:hover {
+    color: $lightning-yellow;
+    text-decoration: none;
+    transform: translateX(0rem);
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+
+    &:after {
+      content: " ⚡️⚡️";
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes try-animate {
+  0% {
+    color: rgb(255, 255, 255);
+  }
+  20% {
+    color: rgb(255, 255, 50);
+  }
+  40% {
+    color: rgb(255, 50, 50);
+  }
+  60% {
+    color: rgb(50, 255, 255);
+  }
+  80% {
+    color: rgb(50, 255, 50);
+  }
+  100% {
+    color: rgb(255, 255, 255);
+  }
+}
