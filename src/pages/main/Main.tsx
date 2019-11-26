@@ -103,10 +103,14 @@ const Main = () => {
               </div>
             </div>
           )}
-          {currentStep === 1 && (
+          {currentStep !== 0 && (
             <VideoCapture
               handleBack={handleBack}
               currentStep={currentStep}
+              setCurrentStep={setCurrentStep}
+              videoProps={{
+                video: videoElementRef.current,
+              }}
               ref={videoElementRef}
             />
           )}
