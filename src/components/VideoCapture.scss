@@ -1,0 +1,38 @@
+.back-button {
+  z-index: 900;
+  font-size: 1rem;
+  color: white;
+  background-color: transparent;
+  padding: 10px 10px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: 1s;
+
+  &:hover {
+    background-color: white;
+    color: #111;
+  }
+}
+
+$button-size: 20px;
+
+.capture-button {
+  z-index: 900;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  margin-left: -31.4px;
+  padding: $button-size;
+  background-color: transparent;
+  color: white;
+  border-radius: 50%;
+  transition: 1s;
+
+  &:hover {
+    background-color: white;
+    color: #111;
+  }
+}

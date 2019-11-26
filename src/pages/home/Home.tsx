@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import * as THREE from "three";
 
-const PARTICLE_COUNT = 1000;
+const PARTICLE_COUNT = 1500;
 
 class THREEParticle extends THREE.Vector3 {
   velocity: THREE.Vector3;
@@ -88,7 +88,9 @@ const Home = () => {
     const height = elementRef.current?.clientHeight || 0;
 
     if (particleSystem.current && particles.current) {
-      // particleSystem.current.rotation.y += 0.0005;
+      particleSystem.current.rotation.x = 0.005;
+      particleSystem.current.rotation.y = 0.005;
+      particleSystem.current.rotation.z = 0.005;
       let pCount = PARTICLE_COUNT;
       while (pCount--) {
         const particle = particles.current?.vertices[pCount];
@@ -100,7 +102,7 @@ const Home = () => {
           if (particle.y <= 0)
             (particle as THREEParticle).velocity.y =
               -1 * (particle as THREEParticle).velocity.y;
-          if (particle.z <= -200)
+          if (particle.z <= -100)
             (particle as THREEParticle).velocity.z =
               -1 * (particle as THREEParticle).velocity.z;
           if (particle.x >= width)
@@ -109,7 +111,7 @@ const Home = () => {
           if (particle.y >= height)
             (particle as THREEParticle).velocity.y =
               -1 * (particle as THREEParticle).velocity.y;
-          if (particle.z >= 200)
+          if (particle.z >= 100)
             (particle as THREEParticle).velocity.z =
               -1 * (particle as THREEParticle).velocity.z;
 
@@ -155,14 +157,14 @@ const Home = () => {
   }, [addCustomObjects, sceneSetup, startAnimationLoop, handleWindowResize]);
 
   return (
-    <div ref={elementRef} className="container">
+    <div ref={elementRef} className="home-container">
       <div className="title-container">
         <h1 className="title">
           Harry Potter's <br />
           The Invisible Cloak
         </h1>
       </div>
-      <Link to="/app" style={{ textDecoration: "none" }}>
+      <Link to="/main" style={{ textDecoration: "none" }}>
         <h3 className="animated-try">Try it</h3>
       </Link>
     </div>
