@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import "./Main.scss";
 import VideoCapture from "../../components/VideoCapture";
+import Instruction from "../../components/Instruction";
 
 function hasGetUserMedia() {
   return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
@@ -39,7 +40,6 @@ const Main = () => {
         video: {
           width: { min: 640, ideal: 1280 },
           height: { min: 480, ideal: 720 },
-          aspectRatio: 16 / 9,
         },
       };
       navigator.mediaDevices
@@ -55,6 +55,8 @@ const Main = () => {
           );
           setIsWebcamBlocked(true);
         });
+    } else if (currentStep === 2) {
+      setShowInstructionIndex(2);
     }
   }, [currentStep]);
 
@@ -82,27 +84,23 @@ const Main = () => {
       {!isWebcamBlocked && (
         <div>
           {showInstructionIndex === 1 && (
-            <div className="instruction-container">
-              <h1 className="text-center">
-                1. Capture the background scene <br />
-                (Don't move the camera after the image is captured)
-              </h1>
-              <div style={{ display: "flex" }}>
-                <button
-                  className="open-button"
-                  onClick={() => {
-                    handleBack();
-                    closeInstruction();
-                  }}
-                >
-                  Back
-                </button>
-                <button className="open-button" onClick={closeInstruction}>
-                  Got It !
-                </button>
-              </div>
-            </div>
+            <Instruction
+              handleBack={handleBack}
+              closeInstruction={closeInstruction}
+            >
+              1. Capture the background scene <br />
+              (Don't move the camera after the image is captured)
+            </Instruction>
           )}
+          {/* {showInstructionIndex === 2 && (
+            <Instruction
+              handleBack={handleBack}
+              closeInstruction={closeInstruction}
+            >
+              2. Find the cloak that is in GREEN () color to use as your
+              invisible cloak !
+            </Instruction>
+          )} */}
           {currentStep !== 0 && (
             <VideoCapture
               handleBack={handleBack}
