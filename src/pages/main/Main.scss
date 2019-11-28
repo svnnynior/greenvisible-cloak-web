@@ -23,3 +23,58 @@ $base-color-contrast: white;
   width: 100vw;
   height: 100vh;
 }
+
+.text-center {
+  text-align: center;
+}
+
+.open-button {
+  border: 1px solid $base-color-contrast;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 10px 20px;
+  color: $base-color-contrast;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 1s;
+  margin: 10px;
+
+  &:hover {
+    background-color: white;
+    color: $base-color;
+  }
+}
+
+.green-color-button {
+  border: 1px solid rgb(16, 255, 107);
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 10px 20px;
+  color: rgb(16, 255, 107);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 1s;
+  margin: 10px;
+
+  &:hover {
+    background-color: rgb(16, 255, 107);
+    color: #000;
+  }
+}
+
+.blue-color-button {
+  border: 1px solid rgb(16, 107, 255);
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 10px 20px;
+  color: rgb(16, 107, 255);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 1s;
+  margin: 10px;
+
+  &:hover {
+    background-color: rgb(16, 107, 255);
+    color: #000;
+  }
+}

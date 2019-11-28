@@ -3,6 +3,11 @@ import React, { useState, useEffect, useRef } from "react";
 import "./Main.scss";
 import VideoCapture from "../../components/VideoCapture";
 import Instruction from "../../components/Instruction";
+import {
+  GREEN_HSV_RANGE,
+  BLUE_HSV_RANGE,
+  ColorRangeHSV,
+} from "../../utils/chromakey";
 
 function hasGetUserMedia() {
   return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
@@ -14,6 +19,10 @@ const Main = () => {
   const videoElementRef = useRef<HTMLVideoElement>(null);
   const [isWebcamBlocked, setIsWebcamBlocked] = useState(false);
   const [showInstructionIndex, setShowInstructionIndex] = useState(0);
+
+  const [selectedChromaColor, setSelectedChromaColor] = useState<ColorRangeHSV>(
+    GREEN_HSV_RANGE,
+  );
 
   if (!webcamAvailable) {
     alert(
@@ -60,6 +69,12 @@ const Main = () => {
     }
   }, [currentStep]);
 
+  const handleChromaColorSelected = (color: ColorRangeHSV) => () => {
+    setSelectedChromaColor(color);
+    setCurrentStep(3);
+    closeInstruction();
+  };
+
   return (
     <>
       {currentStep === 0 && (
@@ -84,28 +99,54 @@ const Main = () => {
       {!isWebcamBlocked && (
         <div>
           {showInstructionIndex === 1 && (
-            <Instruction
-              handleBack={handleBack}
-              closeInstruction={closeInstruction}
-            >
-              1. Capture the background scene <br />
-              (Don't move the camera after the image is captured)
+            <Instruction>
+              <h1 className="text-center">
+                1. Capture the background scene <br />
+                (Don't move the camera after the image is captured)
+              </h1>
+              <div style={{ display: "flex" }}>
+                <button
+                  className="open-button"
+                  onClick={() => {
+                    handleBack();
+                    closeInstruction();
+                  }}
+                >
+                  Back
+                </button>
+                <button className="open-button" onClick={closeInstruction}>
+                  Got It !
+                </button>
+              </div>
             </Instruction>
           )}
-          {/* {showInstructionIndex === 2 && (
-            <Instruction
-              handleBack={handleBack}
-              closeInstruction={closeInstruction}
-            >
-              2. Find the cloak that is in GREEN () color to use as your
-              invisible cloak !
+          {showInstructionIndex === 2 && (
+            <Instruction>
+              <h1 className="text-center">
+                2. Choose one of the color to be your invisible cloak color.
+              </h1>
+              <div style={{ display: "flex" }}>
+                <button
+                  className="green-color-button"
+                  onClick={handleChromaColorSelected(GREEN_HSV_RANGE)}
+                >
+                  GREEN
+                </button>
+                <button
+                  className="blue-color-button"
+                  onClick={handleChromaColorSelected(BLUE_HSV_RANGE)}
+                >
+                  &nbsp;BLUE&nbsp;
+                </button>
+              </div>
             </Instruction>
-          )} */}
+          )}
           {currentStep !== 0 && (
             <VideoCapture
               handleBack={handleBack}
               currentStep={currentStep}
               setCurrentStep={setCurrentStep}
+              selectedChromaColor={selectedChromaColor}
               videoProps={{
                 video: videoElementRef.current,
               }}
