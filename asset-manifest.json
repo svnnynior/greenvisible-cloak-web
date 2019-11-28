@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/greenvisible-cloak-web/static/css/main.01e8a8c1.chunk.css",
+    "main.js": "/greenvisible-cloak-web/static/js/main.c2176e37.chunk.js",
+    "main.js.map": "/greenvisible-cloak-web/static/js/main.c2176e37.chunk.js.map",
+    "runtime-main.js": "/greenvisible-cloak-web/static/js/runtime-main.a3c9a922.js",
+    "runtime-main.js.map": "/greenvisible-cloak-web/static/js/runtime-main.a3c9a922.js.map",
+    "static/js/2.49af33cd.chunk.js": "/greenvisible-cloak-web/static/js/2.49af33cd.chunk.js",
+    "static/js/2.49af33cd.chunk.js.map": "/greenvisible-cloak-web/static/js/2.49af33cd.chunk.js.map",
+    "index.html": "/greenvisible-cloak-web/index.html",
+    "precache-manifest.c416abdc09c496080565124a6edf5226.js": "/greenvisible-cloak-web/precache-manifest.c416abdc09c496080565124a6edf5226.js",
+    "service-worker.js": "/greenvisible-cloak-web/service-worker.js",
+    "static/css/main.01e8a8c1.chunk.css.map": "/greenvisible-cloak-web/static/css/main.01e8a8c1.chunk.css.map",
+    "static/media/index.css": "/greenvisible-cloak-web/static/media/HARRP___.fe2b12b0.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a3c9a922.js",
+    "static/js/2.49af33cd.chunk.js",
+    "static/css/main.01e8a8c1.chunk.css",
+    "static/js/main.c2176e37.chunk.js"
+  ]
+}
