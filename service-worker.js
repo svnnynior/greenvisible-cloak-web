@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/greenvisible-cloak-web/precache-manifest.255084dd3d0d099249bb21888416b33e.js"
+  "/greenvisible-cloak-web/precache-manifest.a8e3d424e8aaaef5d44031aba3e1cdca.js"
 );
 
 self.addEventListener('message', (event) => {
