@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "babff338d1be714851cf5d2df3c7c2b2",
+    "revision": "6697022f53943c8287ad04da9a6f1190",
     "url": "/greenvisible-cloak-web/index.html"
   },
   {
